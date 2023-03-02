@@ -44,3 +44,20 @@ class ItemProduct(models.Model):
     type_item = models.ForeignKey(ItemType, on_delete=models.CASCADE, blank=True)
     description = models.TextField(max_length=500, blank=True, null=True)
     img_item = models.ImageField(max_length=55, blank=True, null=True)
+
+
+    def price_group(self):
+        s = '%d' % self.price
+        groups = []
+        while s and s[-1].isdigit():
+            groups.append(s[-3:])
+            s = s[:-3]
+        return s + ','.join(reversed(groups))
+    
+    def price_del_group(self):
+        s = '%d' % self.price_del
+        groups = []
+        while s and s[-1].isdigit():
+            groups.append(s[-3:])
+            s = s[:-3]
+        return s + ','.join(reversed(groups))
