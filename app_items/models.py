@@ -38,12 +38,12 @@ class ItemProduct(models.Model):
     unit_item = models.ForeignKey(ItemUint, on_delete=models.CharField, null=True, blank=True)
     size_item = models.CharField(max_length=55, null=True, blank=True)
     company_item = models.ForeignKey(ItemCompany, on_delete=models.CASCADE, null=True, blank=True)
-    price = models.IntegerField(null=True, blank=True)
-    price_del = models.IntegerField(null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True, default=0)
+    price_del = models.IntegerField(null=True, blank=True, default=0)
     category_item = models.ForeignKey(ItemCategory, on_delete=models.CASCADE, null=True, blank=True)
     type_item = models.ForeignKey(ItemType, on_delete=models.CASCADE, blank=True)
     description = models.TextField(max_length=500, blank=True, null=True)
-    img_item = models.ImageField(max_length=55, blank=True, null=True)
+    img_item = models.ImageField(max_length=55, blank=True, null=True,default="img_coming_soom.jpg")
 
 
     def price_group(self):
