@@ -1,0 +1,41 @@
+{% extends 'components/base.html' %} {% load static %} {% block content %}
+
+<div class="container">
+  <div class="title-section text-center col-12">
+    <h2 class="text-uppercase">ສິນຄ້າ ຍອດນິຍົມ</h2>
+  </div>
+</div>
+<!-- blog product -->
+{% for item in items %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-lg-4 text-center item mb-4">
+      <!-- <span class="tag">Sale</span> -->
+      <a href="#">
+        <img src="{{ image.url }}" alt="Image" width="270" height="370"
+      /></a>
+      <h3 class="text-dark"><a href="#">{{ item.name_item }}</a></h3>
+      <p class="price"><del>{{item.price_del}}</del> {{ item.price }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- end blog -->
+<!-- page -->
+<div class="row mt-5">
+  <div class="col-md-12 text-center">
+    <div class="site-block-27">
+      <ul>
+        <li><a href="#">&lt;</a></li>
+        <li class="active"><span>1</span></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&gt;</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
