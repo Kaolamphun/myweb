@@ -14,24 +14,24 @@ from django.core.paginator import Paginator, EmptyPage , InvalidPage
 # Create your views here.
 def index(request: HttpRequest):
     # ຈຳນວນສິນຄ້າທິສະແດງໃນ 1 ໜ້າ
-    items_per_page = int(9)
+    itemsPerpage = 6
 
     categories = ItemCategory.objects.order_by("-id")  # categories
-    items = ItemProduct.objects.all().order_by("-id")[:items_per_page] # items
+    items = ItemProduct.objects.all().order_by("-id") # items [:6]
 
-    paginator = Paginator(items, items_per_page)
+    paginator = Paginator(items, itemsPerpage)
     try:
         page = int(request.GET.get('page', '1')) # paginate
     except:
         page = 1
 
     try:
-        itemsPerPage = paginator.page(page)
+        item_per_page = paginator.page(page)
     except (EmptyPage, InvalidPage):
-        itemsPerPage = paginator.page(Paginator.num_pages)
+        item_per_page = paginator.page(Paginator.num_pages)
 
 
-    context = {'categories': categories, 'items': itemsPerPage}   # context
+    context = {'categories': categories, 'items': item_per_page}   # context
     return render(request, "index.html", context)
 
 

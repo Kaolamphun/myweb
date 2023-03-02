@@ -6,12 +6,10 @@
   </div>
 </div>
 
-
-
 <!-- blog product -->
-{% for item in items %}
 <div class="container">
   <div class="row">
+    {% for item in items %}
     <div class="col-sm-6 col-lg-4 text-center item mb-4">
       <!-- <span class="tag">Sale</span> -->
       <a href="#">
@@ -23,30 +21,29 @@
       {% endif %}
       <p class="price text-success">{{ item.price_group }} ກິບ</p>
     </div>
+    {% endfor %}
   </div>
 </div>
-{% endfor %}
 
 <!-- end blog -->
 
-
-
-
 <!-- page  number-->
-{% if items.paginator.num_page > 1  %}
+{% if items.paginator.num_pages > 1 %}
 <div class="row mt-5">
   <div class="col-md-12 text-center">
     <div class="site-block-27">
       <ul>
         <li><a href="#">&lt;</a></li>
-        {% for page_number in items.paginator.page_range %}
-        <li class="active" href="?page={{page_number}}"><span>{{ page_number }}</span></li>
-        {% endfor %}
+        <li class="active">
+          {% for page_number in items.paginator.page_range %}
+          <a href="?page={{page_number}}"
+            ><span>{{ page_number }}</span>
+          </a>
+          {% endfor %}
+        </li>
         <li><a href="#">&gt;</a></li>
       </ul>
     </div>
   </div>
 </div>
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}
