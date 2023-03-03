@@ -12,7 +12,7 @@
     {% for item in items %}
     <div class="col-sm-6 col-lg-4 text-center item mb-4">
       <!-- <span class="tag">Sale</span> -->
-      <a href="#">
+      <a href="{% url 'single_item' item.id %}">
         <img src="{{ item.img_item.url }}" alt="Image" width="270" height="370"
       /></a>
       <h3 class="text-dark"><a href="#">{{ item.name_item }}</a></h3>
@@ -34,13 +34,16 @@
     <div class="site-block-27">
       <ul>
         <li><a href="#">&lt;</a></li>
+        {% for page_number in items.paginator.page_range %}
+
         <li class="active">
-          {% for page_number in items.paginator.page_range %}
           <a href="?page={{page_number}}"
             ><span>{{ page_number }}</span>
           </a>
-          {% endfor %}
         </li>
+
+        
+        {% endfor %}
         <li><a href="#">&gt;</a></li>
       </ul>
     </div>

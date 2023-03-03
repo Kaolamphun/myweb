@@ -1,8 +1,9 @@
-from django.urls import path
-
-from . import views
+from django.urls import path 
+from .views import index, single_item
 
 urlpatterns = [
-    path("", views.index, name="index"),
+
+    path("", index, name="index"),
+    path("item/<int:id>", single_item, name="single_item"),
     
 ]
