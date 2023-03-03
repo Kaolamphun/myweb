@@ -37,7 +37,7 @@ def index(request: HttpRequest):
 
 
 def single_item(request: HttpRequest, id):
-    singitem = ItemProduct.objects.get(id=id)
-    context = {'singitem': singitem}
+    singleitem = ItemProduct.objects.get(id=id) # .all()
+    context = {'singleItem': singleitem}
     return render(request, "single_item.html", context)
 
