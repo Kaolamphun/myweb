@@ -27,26 +27,5 @@
 
 <!-- end blog -->
 
-<!-- page  number-->
-{% if items.paginator.num_pages > 1 %}
-<div class="row mt-5">
-  <div class="col-md-12 text-center">
-    <div class="site-block-27">
-      <ul>
-        <li><a href="#">&lt;</a></li>
-        {% for page_number in items.paginator.page_range %}
 
-        <li class="active">
-          <a href="?page={{page_number}}"
-            ><span>{{ page_number }}</span>
-          </a>
-        </li>
-
-        
-        {% endfor %}
-        <li><a href="#">&gt;</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-{% endif %} {% endblock %}
+{% endblock %}

@@ -1,5 +1,53 @@
 {% load static %}
 
+<!-- pagination -->
+{% if items.paginator.num_pages > 1 %} 
+<div class="container">
+  <div class="pagenumber" >
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+
+      {% if items.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ items.previous_page_number }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% endif %}
+
+      {% for page_number in items.paginator.page_range %}
+      {% if items.number == page_number %}
+      <li class="page-item active"><a class="page-link">{{ page_number }}</a></li>
+      
+      {% else %}
+      <li class="page-item "><a class="page-link" href="?page={{page_number}}">{{ page_number }}</a></li>
+
+      {% endif %}
+      {% endfor %}
+      
+      {% if items.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ items.next_page_number }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+</div>
+</div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
 <!-- Footer -->
 <footer
   class="text-left text-lg-start text-black"

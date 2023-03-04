@@ -31,13 +31,18 @@ def index(request: HttpRequest):
         item_per_page = paginator.page(Paginator.num_pages)
 
 
-    context = {'categories': categories, 'items': item_per_page}   # context
+    context = {
+        'categories': categories, 
+        'items': item_per_page
+    }   # context
     return render(request, "index.html", context)
 
 
 
 def single_item(request: HttpRequest, id):
     singleitem = ItemProduct.objects.get(id=id) # .all()
-    context = {'singleItem': singleitem}
+    context = {
+        'singleItem': singleitem
+    }
     return render(request, "single_item.html", context)
 
