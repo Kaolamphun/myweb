@@ -1,0 +1,23 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Lao Looped', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #fff;
+
+}
+
+footer {
+    background-color: rgb(67, 143, 67);
+}
+
+.text-uppercase {
+    padding-top: 80px;
+    padding-bottom: 10PX;
+    background-color: rgba(225, 233, 235, 0.699);
+}
