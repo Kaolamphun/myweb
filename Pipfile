@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
+django-simple-search = "*"
+django-bootstrap-v5 = "*"
 
 [dev-packages]
 autopep8 = "*"

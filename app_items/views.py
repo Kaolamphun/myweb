@@ -5,13 +5,18 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from datetime import datetime, timedelta
+from simple_search import search_filter
+
 
 from app_items.models import ItemCategory, ItemProduct
-
 from django.core.paginator import Paginator, EmptyPage , InvalidPage
 
 
 # Create your views here.
+
+
+
+
 def index(request: HttpRequest):
     # ຈຳນວນສິນຄ້າທິສະແດງໃນ 1 ໜ້າ
     itemsPerpage = 6
@@ -46,3 +51,12 @@ def single_item(request: HttpRequest, id):
     }
     return render(request, "single_item.html", context)
 
+
+def serch(request: HttpRequest):
+    search_item = ['name_item', 'category_item']
+    query  = ''
+    posts = ItemProduct.objects.filter(search_filter(search_item, query))
+    context = {
+        'posts' : posts
+    }
+    return render(request, "index.html", context)

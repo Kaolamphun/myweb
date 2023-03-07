@@ -7,9 +7,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>site Title</title>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-  {% include 'components/site_stylesheet_and_javascript.html' %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao+Looped&display=swap" rel="stylesheet">
+
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
 
 </head>
 
@@ -19,11 +27,11 @@
 
   {% block content %}{% endblock %}
 
-  
+
 
   {% comment %} page_number in footer {% endcomment %}
-  {% include 'components/site_footer.html' %}  
- 
+  {% include 'components/site_footer.html' %}
+
 
 
 
