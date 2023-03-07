@@ -1,38 +1,86 @@
 {% load static %}
-<header class="site-header">
-  <!-- place navbar here -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="/admin">SK pharma</a>
-    <button class="navbar-toggler hidden-lg-up" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#" aria-current="page">ໜ້າຫຼັກ <span class="visually-hidden"></span></a>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ໝວດໝູ</a>
-          <div class="dropdown-menu" aria-labelledby="dropdownId">
-            
-            {% for category in categories %}
-            <a class="dropdown-item" href="#">{{ category.category_item }}</a>
-            {% endfor %}
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex my-2 my-lg-0">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SK pharma</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end text-bg-dark"
+      tabindex="-1"
+      id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+          SK pharma
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">ໜ້າຫຼັກ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ສິນຄ່າຍອດນິຍົມ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              ໝວດໝູ
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              {% for category in categories %}
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#">{{ category.category_item }}</a></li>
+              {% endfor %}
+
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
-</header>
+
+<!-- Search -->
+<div class="container">
+ <div class="search" style="padding-top: 60px;">
+  <form class="d-flex mt-3" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+</div> 
+</div>
 
 
-<!-- {% for category in categories %}
-<a href="#">{{ category.category_item }}</a>
-<a class="dropdown-item fs-5 fw-bold" href="#">ຢາປິ່ນປົວພະຍາດ</a>
-{% endfor %} -->
+
+<div class="title-section text-center">
+  <h1 class="text-uppercase">ສິນຄ້າ ຍອດນິຍົມ</h1>
+</div>
+
+
+
+
+

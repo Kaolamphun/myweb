@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>site Title</title>
 
-  {% include 'components/site_stylesheet.html' %}
+  {% include 'components/site_stylesheet_and_javascript.html' %}
 
 </head>
 
@@ -19,11 +19,12 @@
 
   {% block content %}{% endblock %}
 
+  
+
   {% comment %} page_number in footer {% endcomment %}
   {% include 'components/site_footer.html' %}  
  
 
-  {% include 'components/site_javascript.html' %}
 
 
 </body>

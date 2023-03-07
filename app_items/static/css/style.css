@@ -12,12 +12,22 @@ body {
 
 }
 
+
+
 footer {
     background-color: rgb(67, 143, 67);
 }
 
-.text-uppercase {
-    padding-top: 80px;
-    padding-bottom: 10PX;
-    background-color: rgba(225, 233, 235, 0.699);
+.container-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    
 }
+
+.search {
+    padding-top: 60px;
+}
+
