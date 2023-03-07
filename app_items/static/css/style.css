@@ -8,16 +8,36 @@
 
 body {
     height: 100vh;
-    background-color: #fff;
+    background-image: './images/bg_1.jpg';
+
+}
+/* nav Header */
+
+.navbar.navbar-dark.bg-dark.fixed-top {
+    background-color: darkslategray;
 
 }
 
 
+.offcanvas.offcanvas-end.show {
+    background-color: darkslategray;
+}
+.offcanvas-body{
+    background-color: darkslategray;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+/* Foodter */
 
 footer {
     background-color: rgb(67, 143, 67);
 }
-
+a {
+    color: #000;
+}
 
 .search {
     padding-top: 60px;

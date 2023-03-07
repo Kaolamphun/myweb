@@ -52,11 +52,21 @@ def single_item(request: HttpRequest, id):
     return render(request, "single_item.html", context)
 
 
-def serch(request: HttpRequest):
-    search_item = ['name_item', 'category_item']
-    query  = ''
-    posts = ItemProduct.objects.filter(search_filter(search_item, query))
-    context = {
-        'posts' : posts
-    }
-    return render(request, "index.html", context)
+# def serch(request: HttpRequest):
+#     search_item = ['name_item', 'category_item']
+#     query  = ''
+#     posts = ItemProduct.objects.filter(search_filter(search_item, query))
+#     context = {
+#         'posts' : posts
+#     }
+#     return render(request, "index.html", context)
+
+def search_product(request):
+    """ search function  """
+    if request.method == "POST":
+        query_name = request.POST.get('name_item', None)
+        if query_name:
+            results = ItemProduct.objects.filter(name_item__contains=query_name)
+            return render(request, 'product-search.html', {"results":results})
+
+    return render(request, 'product-search.html')
