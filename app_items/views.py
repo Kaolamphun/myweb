@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from django.http import HttpRequest
 from django.http.response import HttpResponseRedirect
@@ -15,13 +15,10 @@ from django.core.paginator import Paginator, EmptyPage , InvalidPage
 # Create your views here.
 
 
-
-
-def index(request: HttpRequest):
-    # ຈຳນວນສິນຄ້າທິສະແດງໃນ 1 ໜ້າ
+def page_item(request: HttpRequest):
+     # ຈຳນວນສິນຄ້າທີສະແດງໃນ 1 ໜ້າ
     itemsPerpage = 6
 
-    categories = ItemCategory.objects.order_by("-id")  # categories
     items = ItemProduct.objects.all().order_by("-id") # items [:6]
 
     paginator = Paginator(items, itemsPerpage)
@@ -31,42 +28,67 @@ def index(request: HttpRequest):
         page = 1
 
     try:
-        item_per_page = paginator.page(page)
+        item = paginator.page(page)
     except (EmptyPage, InvalidPage):
-        item_per_page = paginator.page(Paginator.num_pages)
+        item = paginator.page(Paginator.num_pages)
+
+    return item
 
 
+
+def index(request: HttpRequest):
+    categories = ItemCategory.objects.order_by("-id")  # categories
+    item = page_item(request)  # items
+    # context
     context = {
         'categories': categories, 
-        'items': item_per_page
-    }   # context
+        'items': item
+    }  
     return render(request, "index.html", context)
 
 
 
 def single_item(request: HttpRequest, id):
-    singleitem = ItemProduct.objects.get(id=id) # .all()
+    singleitem = ItemProduct.objects.get(id=id) 
     context = {
         'singleItem': singleitem
     }
     return render(request, "single_item.html", context)
 
 
-# def serch(request: HttpRequest):
-#     search_item = ['name_item', 'category_item']
-#     query  = ''
-#     posts = ItemProduct.objects.filter(search_filter(search_item, query))
-#     context = {
-#         'posts' : posts
-#     }
-#     return render(request, "index.html", context)
 
-def search_product(request):
+
+def search_product(request: HttpRequest):
     """ search function  """
     if request.method == "POST":
         query_name = request.POST.get('name_item', None)
         if query_name:
             results = ItemProduct.objects.filter(name_item__contains=query_name)
-            return render(request, 'product-search.html', {"results":results})
+            return render(request, 'product-search.html', {"items":results})
 
     return render(request, 'product-search.html')
+
+# def category_filter(request: HttpRequest, category): 
+#     categories  =  ItemProduct.objects.all().order_by("-id")
+#     for category in categories:
+
+#         filter = ItemProduct.objects.filter(category_item=category.pk)
+
+#         context = {
+#             'filter': filter
+#         }
+#         print(filter)
+#     return render(request, 'category.html', context)
+
+
+def category_filter(request: HttpRequest, categories):
+    categories = ItemProduct.objects.all()
+    
+
+    filter = ItemProduct.objects.filter(category_item=22)
+
+    context = {
+        'filter': filter
+    }
+    # print(filter)
+    return render(request, 'category.html', context)

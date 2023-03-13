@@ -75,7 +75,7 @@
           {% for category in categories%}
 
           <p>
-            <a class="text-black" href="#">{{ category.category_item }}</a>
+            <a class="text-black" href="{% url 'category' category.category_item %}">{{ category.category_item }}</a>
           </p>
           {% endfor %}
         </div>

@@ -1,4 +1,8 @@
 
+:root {
+    --dark: darkslategray;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -14,16 +18,16 @@ body {
 /* nav Header */
 
 .navbar.navbar-dark.bg-dark.fixed-top {
-    background-color: darkslategray;
+    background-color: var(--dark);
 
 }
 
 
 .offcanvas.offcanvas-end.show {
-    background-color: darkslategray;
+    background-color: var(--dark);
 }
 .offcanvas-body{
-    background-color: darkslategray;
+    background-color: var(--dark);
 }
 
 .navbar-toggler {
@@ -33,7 +37,7 @@ body {
 /* Foodter */
 
 footer {
-    background-color: rgb(67, 143, 67);
+    background-color: var(--dark);
 }
 a {
     color: #000;

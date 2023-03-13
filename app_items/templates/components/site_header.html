@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-dark bg-secondary text-white fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/admin">SK pharma</a>
     <button
@@ -52,7 +52,7 @@
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item" href="#">{{ category.category_item }}</a></li>
+              <li><a class="dropdown-item" href="#" name="{{ category.category_item }}">{{ category.category_item }}</a></li>
               {% endfor %}
 
             </ul>

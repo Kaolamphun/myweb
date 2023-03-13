@@ -43,7 +43,11 @@ class ItemProduct(models.Model):
     category_item = models.ForeignKey(ItemCategory, on_delete=models.CASCADE, null=True, blank=True)
     type_item = models.ForeignKey(ItemType, on_delete=models.CASCADE, blank=True)
     description = models.TextField(max_length=500, blank=True, null=True)
-    img_item = models.ImageField(max_length=55, blank=True, null=True,default="img_coming_soom.jpg")
+    img_item = models.ImageField(max_length=55, blank=True, null=True, default="img_coming_soom.jpg")
+    slug = models.SlugField(default="", null=False)
+    
+    def __str__(self):
+        return self.category_item
 
 
     def price_group(self):

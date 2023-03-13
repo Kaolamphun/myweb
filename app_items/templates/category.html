@@ -1,0 +1,30 @@
+{% extends 'components/base.html' %}
+{% load static %} 
+{% block content %}
+
+
+<p > categories </p>
+<h1>tis {{ filter.name }}</h1>
+ <!-- blog product -->
+ <div class="container">
+  <div class="row">
+      {% for item in filter %}
+      
+      <div class="col-sm-6 col-lg-4 text-center item mb-4">
+        <h1>tis {{ filter.name }}</h1>
+        <!-- <span class="tag">Sale</span> -->
+      <a href="{% url 'single_item' item.id %}">
+        <img src="{{ item.img_item.url }}" alt="Image" width="270" height="370"
+      /></a>
+      <h3 class="text-dark"><a href="#">{{ item.name_item }}</a></h3>
+      {% if item.price_del > 1 %}
+      <p class="price text-danger"><del>{{ item.price_del_group }}</del> ກີບ</p>
+      {% endif %}
+      <p class="price text-success">{{ item.price_group }} ກິບ</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}
