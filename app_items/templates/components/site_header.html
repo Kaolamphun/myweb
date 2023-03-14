@@ -52,7 +52,7 @@
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item" href="#" name="{{ category.category_item }}">{{ category.category_item }}</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' category.category_item %}" name="{{ category.category_item }}">{{ category.category_item }}</a></li>
               {% endfor %}
 
             </ul>
